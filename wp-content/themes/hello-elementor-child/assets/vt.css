@@ -443,3 +443,19 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .vt-hero { min-height: 0 !important; }
   .vt-hero > .e-con-inner { padding-top: 190px !important; }
 }
+
+/* ---------- Mobile font sizes per design ---------- */
+@media (max-width: 480px) {
+  .vt-hero-title .elementor-heading-title { font-size: 48px !important; }
+  .vt-page-title .elementor-heading-title { font-size: 44px !important; }
+  .vt-contact-row .e-con > .elementor-widget:first-child .elementor-heading-title,
+  .vt-contact-card-row .e-con > .elementor-widget:first-child .elementor-heading-title { font-size: 13px !important; }
+  .vt-contact-row .e-con > .elementor-widget:last-child .elementor-heading-title { font-size: 20px !important; }
+  .vt-contact-card-row .e-con > .elementor-widget:last-child .elementor-heading-title { font-size: 19px !important; }
+  .vt-grad-card.vt-icon-row .elementor-heading-title { font-size: 17px !important; }
+}
+@media (max-width: 360px) {
+  .vt-hero-title .elementor-heading-title { font-size: 48px !important; }
+  .vt-contact-row .e-con > .elementor-widget:last-child .elementor-heading-title,
+  .vt-contact-card-row .e-con > .elementor-widget:last-child .elementor-heading-title { font-size: 17px !important; }
+}
