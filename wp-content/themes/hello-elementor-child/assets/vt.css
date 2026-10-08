@@ -459,3 +459,6 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .vt-contact-row .e-con > .elementor-widget:last-child .elementor-heading-title,
   .vt-contact-card-row .e-con > .elementor-widget:last-child .elementor-heading-title { font-size: 17px !important; }
 }
+
+/* ---------- Button line height as in the design (font's natural line height) ---------- */
+.elementor-widget-button .elementor-button, .elementor-widget-button .elementor-button .elementor-button-text { line-height: normal !important; }
