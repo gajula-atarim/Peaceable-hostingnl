@@ -394,3 +394,19 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .vt-nav .hfe-nav-menu__toggle { margin-left: auto !important; margin-right: 0 !important; }
   .vt-nav .hfe-nav-menu__toggle .hfe-nav-menu-icon { margin-right: 0; }
 }
+
+/* ---------- Tablet header: logo left, language switch + hamburger right ---------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .vt-header-bar .vt-header-cta { display: none !important; }
+  .vt-header-bar .vt-logo-box { order: 1; }
+  .vt-header-bar .vt-lang { order: 2; margin-left: auto !important; }
+  .vt-header-bar .vt-nav { order: 3; flex: 0 0 auto !important; width: auto !important; margin-left: 16px !important; }
+  .vt-header-bar > .e-con-inner, .vt-header-bar { column-gap: 0 !important; }
+}
+
+/* ---------- Tablet header v2: menu widget only as wide as the hamburger ---------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .vt-header-bar .vt-logo-box { flex: 0 0 auto !important; }
+  .vt-header-bar .vt-lang { flex: 0 0 auto !important; margin-left: auto !important; }
+  .vt-header-bar .vt-nav { flex: 0 0 auto !important; width: 44px !important; max-width: 44px !important; min-width: 0 !important; overflow: visible !important; margin-left: 16px !important; }
+}
