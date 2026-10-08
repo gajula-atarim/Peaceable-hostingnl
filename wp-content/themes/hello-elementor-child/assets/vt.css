@@ -425,3 +425,12 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .vt-eyebrow .elementor-heading-title { line-height: 1.6 !important; align-items: flex-start !important; }
   .vt-eyebrow .elementor-heading-title::before { margin-top: 0.55em; }
 }
+
+/* ---------- Mobile/tablet dropdown card: full width under the header ---------- */
+@media (max-width: 1024px) {
+  .vt-header-bar { position: relative !important; }
+  .vt-header-bar > .e-con-inner, .vt-header-bar .vt-nav, .vt-header-bar .vt-nav > .elementor-widget-container, .vt-header-bar .vt-nav .hfe-nav-menu { position: static !important; }
+  .vt-nav nav.hfe-nav-menu__layout-horizontal { position: absolute !important; top: calc(100% + 8px) !important; left: 16px !important; right: 16px !important; width: auto !important; margin: 0 !important; z-index: 100; border-radius: 16px; overflow: hidden; box-shadow: 0 24px 48px rgba(0,0,0,.35); }
+  .vt-nav nav.hfe-nav-menu__layout-horizontal .hfe-menu-item { border-radius: 0 !important; border: 0 !important; }
+  .vt-nav nav.hfe-nav-menu__layout-horizontal .current-menu-item > a.hfe-menu-item { background: rgba(255,255,255,.08) !important; color: var(--vt-sky) !important; }
+}
