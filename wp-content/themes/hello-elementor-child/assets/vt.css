@@ -501,3 +501,6 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .vt-footer-col:nth-child(4) { flex-grow: .85 !important; }
   .vt-footer-icons a[href^="tel:"], .vt-footer-icons a[href^="mailto:"] { white-space: nowrap; }
 }
+
+/* ---------- Footer menu: underline the active page ---------- */
+.vt-footer-nav .menu-item.current-menu-item > a.hfe-menu-item, .vt-footer-nav .menu-item > a.hfe-menu-item.elementor-item-active { text-decoration: underline !important; text-decoration-color: #3FA9F5 !important; text-decoration-thickness: 2px !important; text-underline-offset: 6px !important; }
