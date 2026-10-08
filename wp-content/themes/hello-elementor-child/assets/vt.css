@@ -314,3 +314,12 @@ body.elementor-editor-active .vt-wall > .vt-col { animation: none; transform: no
 .vt-form-thanks b { width: 56px; height: 56px; border-radius: 50%; background: var(--vt-blue); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 22px; }
 .vt-form-thanks strong { font-size: 26px; color: var(--vt-navy); }
 .vt-form-error { margin: 0 0 4px; padding: 12px 16px; border-radius: 14px; background: #FDECEC; color: #9B1C1C; font-size: 15px; }
+
+/* ---------- Hero tabs full width ---------- */
+.vt-hero-tabs > .vt-hero-tab { flex: 1 1 0 !important; min-width: 0; margin-right: 0 !important; padding-left: 24px !important; padding-right: 24px !important; }
+.vt-hero-tabs > .vt-hero-tab:first-child { padding-left: 0 !important; }
+.vt-hero-tabs > .vt-hero-tab:last-child { padding-right: 0 !important; border-right: 0 !important; }
+@media (max-width: 767px) {
+  .vt-hero-tabs > .vt-hero-tab { flex: 0 0 auto !important; padding: 16px 0 !important; border-right: 0 !important; }
+  .vt-hero-tabs > .vt-hero-tab:last-child { border-bottom: 0; }
+}
