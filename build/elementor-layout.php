@@ -115,7 +115,7 @@ function vt_home(){
     vt_con([vt_icon('fas fa-map-marker-alt','vt-ring',['size'=>18,'pad'=>12]),vt_t('<p><strong>vtHullenaar BV</strong><br>Zernikelaan 47, 2871 LP Schoonhoven</p>',$TEXT,'',['size'=>13,'lh'=>1.4])],'vt-glass vt-float-a vt-stage__top',['flex_direction'=>'row','flex_align_items'=>'center','flex_gap'=>vt_gap(12),'padding'=>vt_box(12,16,12,12)]),
     vt_con([vt_con([vt_h('vtHullenaar activities','div','#8FD0FF','vt-dot',['size'=>12,'weight'=>600,'ls'=>1.4,'transform'=>'uppercase']),vt_h('COMPLETE CARE FROM PATCH PANEL TO WORKSPACE!','div','#FFFFFF','',['size'=>15,'weight'=>600,'lh'=>1.35])],'vt-glass vt-glass--dark vt-float-b',['flex_gap'=>vt_gap(6),'padding'=>vt_box(18,20),'width'=>vt_u('px',300),'width_mobile'=>vt_u('%',100)]),
       vt_btn('Get in touch →','#contact','vt-shadow-btn',['bg'=>$BLUE,'fg'=>'#FFFFFF','hfg'=>$NAVY,'pad'=>[13,22],'size'=>14])],'vt-stage__bottom',['flex_direction'=>'row','flex_wrap'=>'wrap','flex_justify_content'=>'space-between','flex_align_items'=>'flex-end','flex_gap'=>vt_gap(14)])],
-    'vt-stage vt-stage--who',vt_pct(50));
+    'vt-stage vt-stage--who',array_merge(vt_pct(50),['_flex_order_mobile'=>'start']));
   $out[]=vt_section([vt_con([vt_pill('Who we are'),vt_h('Everything we do revolves around <strong>connection</strong> — literally and figuratively.','h2',$NAVY,'vt-h2',['size'=>60,'tablet'=>44,'mobile'=>36,'weight'=>400,'lh'=>1.12,'ls'=>-1.8])],'',['flex_gap'=>vt_gap(22),'width'=>vt_u('px',680),'width_tablet'=>vt_u('%',100)]),
     vt_row([$whoTabs,$stage],'vt-switch',40,false)],'vt-who','who',['flex_gap'=>vt_gap(56)],'#FFFFFF');
   // 4 what
