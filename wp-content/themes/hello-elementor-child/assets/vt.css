@@ -323,3 +323,74 @@ body.elementor-editor-active .vt-wall > .vt-col { animation: none; transform: no
   .vt-hero-tabs > .vt-hero-tab { flex: 0 0 auto !important; padding: 16px 0 !important; border-right: 0 !important; }
   .vt-hero-tabs > .vt-hero-tab:last-child { border-bottom: 0; }
 }
+
+/* ---------- Mobile overflow guard (320px+) ---------- */
+html, body { max-width: 100%; overflow-x: hidden; }
+@supports (overflow: clip) { html, body { overflow-x: clip; } }
+.vt-hero, .vt-dark, .vt-glow, .vt-marquee-wrap, .vt-footer, .vt-cta-card, .vt-svc-media, .vt-masonry, .vt-tcard { overflow: hidden !important; }
+@supports (overflow: clip) { .vt-header { overflow: clip !important; overflow-y: visible !important; } }
+.vt-wall, .vt-stage--who, .vt-stage--svc { overflow: hidden !important; }
+.elementor-heading-title, .elementor-widget-text-editor, .elementor-button-text { overflow-wrap: break-word; }
+.vt-contact-row .elementor-heading-title, .vt-contact-card-row .elementor-heading-title { overflow-wrap: anywhere; }
+.e-con, .e-con-inner { min-width: 0; }
+.vt-header .hfe-nav-menu__toggle { flex-shrink: 0; }
+@media (max-width: 767px) {
+  .vt-stage--cards { margin-right: 20px; }
+  .vt-hero-tabs::before { left: -40px; right: -40px; }
+}
+@media (max-width: 480px) {
+  .vt-pill .elementor-heading-title, .vt-chip .elementor-heading-title, .vt-media-chip .elementor-heading-title, .vt-divider-badge .elementor-heading-title { white-space: normal; }
+  .vt-subnav-chip .elementor-button { white-space: normal; }
+  .vt-contact-row .elementor-heading-title, .vt-contact-card-row .elementor-heading-title { font-size: 16px; }
+  .vt-logo-box img { height: 46px !important; padding: 6px 12px; }
+  .vt-hero-title .elementor-heading-title { font-size: 40px; }
+  .vt-page-title .elementor-heading-title { font-size: 38px; }
+  .vt-marquee .elementor-icon-list-item { padding: 0 22px !important; }
+  .vt-stage--cards > .vt-tcard { inset: 0 14px 14px 0; transform: translate(14px,14px) rotate(2deg) scale(.96); }
+  .vt-stage--cards { margin-right: 14px; }
+  .vt-feature-row .elementor-icon-list-items { gap: 12px 24px; }
+}
+@media (max-width: 360px) {
+  .vt-hero-title .elementor-heading-title { font-size: 36px; }
+  .vt-glass--card::after { width: 40px; height: 40px; right: 16px; }
+  .vt-contact-card { padding-left: 18px !important; padding-right: 18px !important; }
+}
+
+/* ---------- Mobile typography + hero fade ---------- */
+@media (max-width: 767px) {
+  .vt-hero-tabs::before { display: none !important; }
+  h1.elementor-heading-title { letter-spacing: -0.03em !important; }
+  h2.elementor-heading-title, h3.elementor-heading-title { letter-spacing: -0.025em !important; }
+  .vt-outline-num .elementor-heading-title { letter-spacing: -0.03em !important; }
+}
+
+/* ---------- Small-screen polish ---------- */
+.vt-icon-row > .elementor-widget-heading, .vt-icon-row > .elementor-widget-text-editor { flex: 1 1 0 !important; min-width: 0; width: auto !important; }
+@media (max-width: 1024px) {
+  .vt-header-bar .vt-nav { flex: 1 1 0 !important; min-width: 0 !important; }
+  .vt-header-bar .vt-logo-box { flex: 0 1 auto !important; min-width: 0; }
+  .vt-header-bar .vt-header-cta, .vt-header-bar .vt-lang { flex: 0 0 auto !important; }
+  .vt-nav .hfe-nav-menu__toggle { margin-left: auto; margin-right: 0; }
+}
+@media (max-width: 480px) {
+  .vt-contact-card-row { padding: 16px !important; gap: 14px !important; }
+  .vt-contact-card-row .elementor-icon { padding: 13px !important; }
+  .vt-contact-card-row .elementor-heading-title, .vt-contact-row .elementor-heading-title { overflow-wrap: normal; word-break: normal; }
+  .vt-contact-row { gap: 14px !important; }
+  .vt-contact-row .elementor-icon { padding: 13px !important; }
+  .vt-about-col2 > .e-con { padding: 14px !important; }
+  .vt-about-col2 .elementor-heading-title { letter-spacing: 0 !important; overflow-wrap: normal; }
+  .vt-about-col2 > .e-con > .elementor-widget:first-child .elementor-heading-title { font-size: 10px !important; }
+  .vt-about-col2 > .e-con > .elementor-widget:last-child .elementor-heading-title { font-size: 12px !important; }
+  .vt-grad-card .elementor-heading-title { font-size: 15px !important; }
+}
+@media (max-width: 360px) {
+  .vt-contact-card-row .elementor-heading-title, .vt-contact-row .elementor-heading-title { font-size: 15px !important; }
+  .vt-about-col2 { padding-top: 32px !important; }
+}
+
+/* ---------- Hamburger right ---------- */
+@media (max-width: 1024px) {
+  .vt-nav .hfe-nav-menu__toggle { margin-left: auto !important; margin-right: 0 !important; }
+  .vt-nav .hfe-nav-menu__toggle .hfe-nav-menu-icon { margin-right: 0; }
+}
