@@ -491,3 +491,13 @@ html, body { max-width: 100%; overflow-x: hidden; }
 .vt-footer .elementor-icon-list-icon { width: 14px !important; height: 14px !important; margin: 0 !important; padding: 0 !important; display: flex !important; flex: none; }
 .vt-footer .elementor-icon-list-icon svg { width: 14px !important; height: 14px !important; min-width: 14px; min-height: 14px; max-width: none !important; max-height: none !important; transform: none !important; display: block !important; }
 .vt-footer .elementor-icon-list-icon svg, .vt-footer .elementor-icon-list-icon svg * { fill: #3FA9F5 !important; }
+
+/* ---------- Footer tablet: wider Contact column, phone/email on one line ---------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .e-con:has(> .vt-footer-col) { gap: 24px !important; }
+  .vt-footer-col:nth-child(1) { flex-grow: 1.3 !important; }
+  .vt-footer-col:nth-child(2) { flex-grow: .75 !important; }
+  .vt-footer-col:nth-child(3) { flex-grow: 1.45 !important; }
+  .vt-footer-col:nth-child(4) { flex-grow: .85 !important; }
+  .vt-footer-icons a[href^="tel:"], .vt-footer-icons a[href^="mailto:"] { white-space: nowrap; }
+}
