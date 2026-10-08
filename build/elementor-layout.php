@@ -145,7 +145,7 @@ function vt_home(){
   $wall=vt_con($cc,'vt-wall',array_merge(['flex_direction'=>'row','flex_gap'=>vt_gap(16)],vt_pct(55)));
   $pcopy=vt_con([vt_pill('Projects',true),vt_h('Our <strong>projects</strong>','h2','#FFFFFF','',['size'=>72,'tablet'=>52,'mobile'=>40,'weight'=>400,'lh'=>1.02,'ls'=>-3]),
     vt_row([vt_h('08','div',$SKY,'vt-outline-num vt-outline-num--sky',['size'=>104,'mobile'=>64,'weight'=>700,'lh'=>0.9,'ls'=>-5]),vt_t('<p>projects in<br>the gallery</p>',$MUTED,'',['size'=>15,'lh'=>1.4])],'',14,true,false,['align'=>'flex-end']),
-    vt_btn('Open gallery','PAGE:projects','vt-btn-arrow vt-btn-arrow--light',['bg'=>'#FFFFFF','fg'=>$NAVY,'hbg'=>$SKY,'hfg'=>'#FFFFFF','pad'=>[8,8],'icon'=>'fas fa-th-large']),
+    vt_btn('View projects','PAGE:projects','vt-btn-arrow vt-btn-arrow--light',['bg'=>'#FFFFFF','fg'=>$NAVY,'hbg'=>$SKY,'hfg'=>'#FFFFFF','pad'=>[8,8],'icon'=>'fas fa-th-large']),
     vt_con([vt_h('Your project <strong>here?</strong>','div','#FFFFFF','',['size'=>22,'weight'=>400,'ls'=>-0.4]),vt_h('Contact us →','div',$SKY,'',['size'=>14,'weight'=>600])],'vt-glass vt-glass--card',['html_tag'=>'a','link'=>vt_link('#contact'),'flex_gap'=>vt_gap(4),'padding'=>vt_box(22,24),'width'=>vt_u('px',420),'width_mobile'=>vt_u('%',100)])],
     '',array_merge(['flex_gap'=>vt_gap(28),'flex_align_items'=>'flex-start','padding'=>vt_box(120,0),'padding_mobile'=>vt_box(40,0)],vt_pct(45)));
   $out[]=vt_section([vt_row([$pcopy,$wall],'',48,false)],'vt-dark vt-dark--projects vt-blob','projects',[],null,[0,40,0,40]);
