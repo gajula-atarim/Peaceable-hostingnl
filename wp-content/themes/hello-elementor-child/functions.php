@@ -55,7 +55,7 @@ function vt_handle_contact() {
 		$done( false );
 	}
 	$to   = apply_filters( 'vt_contact_recipient', 'info@vthullenaar.nl' );
-	$body = "From: {$name} <{$email}>\n\n{$message}\n\n-- \nSent from the contact form on " . home_url( '/' );
-	$ok   = wp_mail( $to, 'Website enquiry from ' . $name, $body, [ 'Reply-To: ' . $name . ' <' . $email . '>' ] );
+	$body = "From: {$name} <{$email}>\n\n{$message}\n\n-- \nVerzonden via het contactformulier op " . home_url( '/' );
+	$ok   = wp_mail( $to, 'Websiteaanvraag van ' . $name, $body, [ 'Reply-To: ' . $name . ' <' . $email . '>' ] );
 	$done( $ok );
 }

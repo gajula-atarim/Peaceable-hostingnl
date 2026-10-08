@@ -124,11 +124,11 @@
 		if (!m || !form) { return; }
 		if (m[1] === '1') {
 			var card = form.closest('.vt-form-card') || form.parentNode;
-			card.innerHTML = '<div class="vt-form-thanks"><b>✓</b><strong>Thank you</strong></div>';
+			card.innerHTML = '<div class="vt-form-thanks"><b>✓</b><strong>Bedankt voor uw bericht</strong></div>';
 		} else {
 			var p = document.createElement('p');
 			p.className = 'vt-form-error';
-			p.textContent = 'Sorry, your message could not be sent. Please email info@vthullenaar.nl.';
+			p.textContent = 'Sorry, uw bericht kon niet worden verzonden. Mail ons op info@vthullenaar.nl.';
 			form.insertBefore(p, form.firstChild);
 		}
 	});
