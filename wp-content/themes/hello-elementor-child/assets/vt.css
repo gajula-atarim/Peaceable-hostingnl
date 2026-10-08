@@ -410,3 +410,12 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .vt-header-bar .vt-lang { flex: 0 0 auto !important; margin-left: auto !important; }
   .vt-header-bar .vt-nav { flex: 0 0 auto !important; width: 44px !important; max-width: 44px !important; min-width: 0 !important; overflow: visible !important; margin-left: 16px !important; }
 }
+
+/* ---------- Header: logo, language switch and hamburger on one centre line ---------- */
+.vt-logo-box, .vt-logo-box .elementor-widget-container, .vt-logo-box a { display: block !important; line-height: 0 !important; font-size: 0 !important; }
+.vt-header-bar .vt-logo-box, .vt-header-bar .vt-lang, .vt-header-bar .vt-nav, .vt-header-bar .vt-header-cta { align-self: center !important; }
+@media (max-width: 1024px) {
+  .vt-header-bar .vt-nav, .vt-header-bar .vt-nav > .elementor-widget-container, .vt-nav .hfe-nav-menu { display: flex !important; align-items: center !important; justify-content: flex-end !important; margin-top: 0 !important; margin-bottom: 0 !important; }
+  .vt-nav .hfe-nav-menu__toggle { display: flex !important; align-items: center; margin-top: 0 !important; margin-bottom: 0 !important; }
+  .vt-nav nav.hfe-nav-menu__layout-horizontal { position: absolute !important; top: 100%; }
+}
