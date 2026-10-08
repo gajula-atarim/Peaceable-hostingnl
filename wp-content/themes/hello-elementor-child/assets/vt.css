@@ -462,3 +462,10 @@ html, body { max-width: 100%; overflow-x: hidden; }
 
 /* ---------- Button line height as in the design (font's natural line height) ---------- */
 .elementor-widget-button .elementor-button, .elementor-widget-button .elementor-button .elementor-button-text { line-height: normal !important; }
+
+/* ---------- Footer columns in one row on tablet ---------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .e-con:has(> .vt-footer-col) { flex-wrap: nowrap !important; gap: 28px !important; }
+  .vt-footer-col { flex: 1 1 0 !important; width: auto !important; min-width: 0 !important; }
+  .vt-footer-col:first-child { flex-grow: 1.5 !important; }
+}
