@@ -434,3 +434,12 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .vt-nav nav.hfe-nav-menu__layout-horizontal .hfe-menu-item { border-radius: 0 !important; border: 0 !important; }
   .vt-nav nav.hfe-nav-menu__layout-horizontal .current-menu-item > a.hfe-menu-item { background: rgba(255,255,255,.08) !important; color: var(--vt-sky) !important; }
 }
+
+/* ---------- Tablet/mobile top spacing: no doubled padding under the header ---------- */
+@media (max-width: 1024px) {
+  .vt-page-header > .e-con-inner { padding-top: 0 !important; }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .vt-hero { min-height: 0 !important; }
+  .vt-hero > .e-con-inner { padding-top: 190px !important; }
+}
