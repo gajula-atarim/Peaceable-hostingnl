@@ -419,3 +419,9 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .vt-nav .hfe-nav-menu__toggle { display: flex !important; align-items: center; margin-top: 0 !important; margin-bottom: 0 !important; }
   .vt-nav nav.hfe-nav-menu__layout-horizontal { position: absolute !important; top: 100%; }
 }
+
+/* ---------- Hero eyebrow line height (mobile) ---------- */
+@media (max-width: 767px) {
+  .vt-eyebrow .elementor-heading-title { line-height: 1.6 !important; align-items: flex-start !important; }
+  .vt-eyebrow .elementor-heading-title::before { margin-top: 0.55em; }
+}
