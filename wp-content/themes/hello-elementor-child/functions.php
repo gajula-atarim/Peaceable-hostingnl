@@ -33,3 +33,29 @@ add_action( 'after_setup_theme', function () {
 		'vt-footer'  => __( 'Footer pages', 'hello-elementor-child' ),
 	] );
 } );
+
+// Contact form (Contact page): posts to admin-post.php and mails the site owner.
+add_action( 'admin_post_nopriv_vt_contact', 'vt_handle_contact' );
+add_action( 'admin_post_vt_contact', 'vt_handle_contact' );
+function vt_handle_contact() {
+	$back = wp_get_referer() ? wp_get_referer() : home_url( '/contact/' );
+	$back = remove_query_arg( 'vt_sent', $back );
+	$done = function ( $ok ) use ( $back ) {
+		wp_safe_redirect( add_query_arg( 'vt_sent', $ok ? '1' : '0', $back ) . '#contact-form' );
+		exit;
+	};
+	// Honeypot: real visitors never fill this hidden field.
+	if ( ! empty( $_POST['vt_website'] ) ) {
+		$done( true );
+	}
+	$name    = sanitize_text_field( wp_unslash( $_POST['vt_name'] ?? '' ) );
+	$email   = sanitize_email( wp_unslash( $_POST['vt_email'] ?? '' ) );
+	$message = sanitize_textarea_field( wp_unslash( $_POST['vt_message'] ?? '' ) );
+	if ( '' === $name || ! is_email( $email ) ) {
+		$done( false );
+	}
+	$to   = apply_filters( 'vt_contact_recipient', 'info@vthullenaar.nl' );
+	$body = "From: {$name} <{$email}>\n\n{$message}\n\n-- \nSent from the contact form on " . home_url( '/' );
+	$ok   = wp_mail( $to, 'Website enquiry from ' . $name, $body, [ 'Reply-To: ' . $name . ' <' . $email . '>' ] );
+	$done( $ok );
+}

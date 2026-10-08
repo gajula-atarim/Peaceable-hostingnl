@@ -96,3 +96,40 @@
 		document.querySelectorAll('.vt-switch').forEach(switcher);
 	});
 })();
+
+/* vtHullenaar: project gallery as one lightbox slideshow + "Open gallery" button. */
+(function () {
+	'use strict';
+	function ready(fn) { if (document.readyState !== 'loading') { fn(); } else { document.addEventListener('DOMContentLoaded', fn); } }
+	ready(function () {
+		var links = document.querySelectorAll('.vt-mtile a');
+		links.forEach(function (a) { a.setAttribute('data-elementor-lightbox-slideshow', 'vt-projects'); });
+		document.querySelectorAll('.vt-open-gallery a, .vt-open-gallery .elementor-button').forEach(function (btn) {
+			btn.addEventListener('click', function (e) {
+				if (!links.length) { return; }
+				e.preventDefault();
+				links[0].click();
+			});
+		});
+	});
+})();
+
+/* vtHullenaar: contact form result state. */
+(function () {
+	'use strict';
+	function ready(fn) { if (document.readyState !== 'loading') { fn(); } else { document.addEventListener('DOMContentLoaded', fn); } }
+	ready(function () {
+		var m = /[?&]vt_sent=([01])/.exec(window.location.search);
+		var form = document.querySelector('.vt-form .vt-form-el');
+		if (!m || !form) { return; }
+		if (m[1] === '1') {
+			var card = form.closest('.vt-form-card') || form.parentNode;
+			card.innerHTML = '<div class="vt-form-thanks"><b>✓</b><strong>Thank you</strong></div>';
+		} else {
+			var p = document.createElement('p');
+			p.className = 'vt-form-error';
+			p.textContent = 'Sorry, your message could not be sent. Please email info@vthullenaar.nl.';
+			form.insertBefore(p, form.firstChild);
+		}
+	});
+})();

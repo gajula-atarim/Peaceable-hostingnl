@@ -237,3 +237,80 @@ body.elementor-editor-active .vt-wall > .vt-col { animation: none; transform: no
 .vt-hero .elementor-background-video-container video { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; max-width: none !important; object-fit: cover; transform: none !important; }
 .vt-hero::before { z-index: 1 !important; }
 .vt-hero-copy, .vt-hero-tabs { position: relative; z-index: 2; }
+
+/* ---------- Inner pages ---------- */
+.vt-icon-row { flex-wrap: nowrap !important; }
+.vt-icon-row > .elementor-widget { flex: 0 0 auto !important; width: auto !important; }
+.vt-icon-row > .e-con, .vt-icon-row > .elementor-widget-text-editor { flex: 1 1 0 !important; min-width: 0; width: auto !important; --width: auto; }
+.vt-cta-card { position: relative; overflow: hidden; }
+.vt-cta-card::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(90deg, rgba(63,169,245,0) 0px, rgba(63,169,245,.14) 30px, rgba(63,169,245,0) 60px); }
+.vt-cta-card > * { position: relative; z-index: 1; }
+.vt-subnav { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.85); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 1px solid var(--vt-line); }
+.admin-bar .vt-subnav { top: 32px; }
+.vt-subnav-chip .elementor-button { white-space: nowrap; }
+.vt-svc-media { aspect-ratio: 5 / 4; overflow: hidden; box-shadow: 0 30px 60px rgba(11,26,58,.14); }
+.vt-media-chip .elementor-heading-title { display: inline-flex; padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,.85); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); white-space: nowrap; }
+.vt-media-num { align-self: flex-end; }
+.vt-media-num .elementor-heading-title { -webkit-text-stroke: 2px rgba(255,255,255,.85); }
+.vt-icon-60 .elementor-icon { border-radius: 18px !important; }
+.vt-btn-arrow--white .elementor-button-icon { background: #fff; }
+.vt-btn-arrow--white .elementor-button-icon svg { fill: var(--vt-blue); }
+.vt-outline-num--blue .elementor-heading-title { -webkit-text-stroke-color: var(--vt-blue); }
+.vt-masonry { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); grid-auto-rows: 220px; grid-auto-flow: dense; gap: 18px !important; counter-reset: vtTile; }
+.vt-masonry > .elementor-widget { width: auto !important; max-width: none !important; margin: 0 !important; }
+.vt-mtile { position: relative; border-radius: 22px; overflow: hidden; box-shadow: 0 14px 34px rgba(11,26,58,.10); transition: box-shadow .3s ease; counter-increment: vtTile; }
+.vt-mtile:hover { box-shadow: 0 26px 50px rgba(11,26,58,.22); }
+.vt-span2 { grid-row: span 2; }
+.vt-mtile, .vt-mtile > .elementor-widget-container, .vt-mtile a { display: block; height: 100%; cursor: zoom-in; }
+.vt-mtile img { width: 100% !important; height: 100% !important; max-width: none; object-fit: cover; display: block; }
+.vt-mtile::before { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(0deg, rgba(11,26,58,.5) 0%, rgba(11,26,58,0) 45%); }
+.vt-mtile::after { content: counter(vtTile, decimal-leading-zero); position: absolute; left: 16px; bottom: 14px; z-index: 2; font-size: 13px; font-weight: 700; color: #fff; pointer-events: none; }
+.vt-mtile a { position: relative; }
+.vt-mtile a::after { content: '⤢'; position: absolute; right: 14px; bottom: 12px; z-index: 2; width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,.88); color: var(--vt-navy); display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.vt-project-card { text-decoration: none; transition: background-color .3s ease; min-height: 220px; }
+.vt-project-card:hover { background-color: var(--vt-blue) !important; }
+.vt-about-photos > .elementor-widget, .vt-about-photos > .e-con { flex: 1 1 0 !important; min-width: 0; width: auto !important; }
+.vt-photo-r img { width: 100% !important; object-fit: cover; border-radius: 24px; box-shadow: 0 24px 50px rgba(11,26,58,.14); display: block; }
+.vt-ratio-tall img { aspect-ratio: 3 / 4.4; }
+.vt-ratio-square img { aspect-ratio: 1 / 1; }
+@media (min-width: 768px) { .vt-sticky { position: sticky !important; top: 30px; } }
+.vt-contact-card-row { text-decoration: none; transition: border-color .25s ease; }
+.vt-contact-card-row:hover { border-color: var(--vt-blue) !important; }
+.vt-contact-card-row:hover .elementor-heading-title { color: var(--vt-blue) !important; }
+.vt-map { overflow: hidden; }
+.vt-map iframe { display: block; filter: saturate(.9); }
+.vt-download { text-decoration: none; transition: border-color .25s ease, box-shadow .25s ease; }
+.vt-download:hover { border-color: var(--vt-blue) !important; box-shadow: 0 18px 36px rgba(11,26,58,.10); }
+.vt-download > .e-con { flex: 1 1 0 !important; }
+.vt-pdf-badge .elementor-heading-title { width: 52px; height: 52px; border-radius: 14px; background: var(--vt-navy); display: flex; align-items: center; justify-content: center; }
+.vt-dl-arrow .elementor-heading-title { width: 44px; height: 44px; border-radius: 50%; background: var(--vt-blue); display: flex; align-items: center; justify-content: center; }
+
+/* Contact Form 7 styled as the design */
+.vt-form .wpcf7-form { display: flex; flex-direction: column; gap: 14px; }
+.vt-form .wpcf7-form p { margin: 0; }
+.vt-form .vt-form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 14px; }
+.vt-form .wpcf7-form-control-wrap { display: block; }
+.vt-form input[type=text], .vt-form input[type=email], .vt-form textarea { width: 100%; font-family: 'Archivo', sans-serif; font-size: 16px; padding: 16px 18px; border: 1px solid #D5DEE9; background: #fff; border-radius: 14px; outline: none; color: var(--vt-navy); box-sizing: border-box; transition: border-color .2s ease, box-shadow .2s ease; }
+.vt-form textarea { resize: vertical; min-height: 160px; }
+.vt-form input:focus, .vt-form textarea:focus { border-color: var(--vt-blue); box-shadow: 0 0 0 4px #E3F1FC; }
+.vt-form .wpcf7-submit { display: inline-flex; align-items: center; gap: 12px; background: var(--vt-blue); color: #fff; border: none; font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 600; padding: 15px 28px; border-radius: 999px; cursor: pointer; transition: background .25s ease; }
+.vt-form .wpcf7-submit:hover { background: var(--vt-navy); }
+.vt-form .wpcf7-spinner { margin: 0 0 0 12px; }
+.vt-form .wpcf7-response-output { margin: 4px 0 0 !important; border-radius: 14px; padding: 12px 16px !important; font-size: 15px; }
+.vt-form .wpcf7-not-valid-tip { font-size: 13px; margin-top: 6px; }
+
+/* ---------- Inner page fixes v2 ---------- */
+.vt-cta-card { max-width: 1280px; width: 100%; margin-left: auto !important; margin-right: auto !important; }
+@media (max-width: 1024px) { .vt-page-header { padding-top: 150px !important; } }
+@media (max-width: 767px) { .vt-page-header { padding-top: 130px !important; padding-bottom: 110px !important; } }
+
+/* ---------- Contact form (theme handler) ---------- */
+.vt-form .vt-form-el { display: flex; flex-direction: column; gap: 14px; margin: 0; }
+.vt-form .vt-hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; }
+.vt-form .vt-submit { align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; background: var(--vt-blue); color: #fff; border: none; font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 600; padding: 8px 8px 8px 24px; border-radius: 999px; cursor: pointer; transition: background .25s ease; }
+.vt-form .vt-submit:hover, .vt-form .vt-submit:focus { background: var(--vt-navy); color: #fff; }
+.vt-form .vt-submit span { width: 38px; height: 38px; border-radius: 50%; background: #fff; color: var(--vt-blue); display: flex; align-items: center; justify-content: center; }
+.vt-form-thanks { display: flex; flex-direction: column; gap: 12px; padding: 40px 0; align-items: flex-start; }
+.vt-form-thanks b { width: 56px; height: 56px; border-radius: 50%; background: var(--vt-blue); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+.vt-form-thanks strong { font-size: 26px; color: var(--vt-navy); }
+.vt-form-error { margin: 0 0 4px; padding: 12px 16px; border-radius: 14px; background: #FDECEC; color: #9B1C1C; font-size: 15px; }
