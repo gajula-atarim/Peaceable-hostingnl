@@ -520,3 +520,18 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .vt-form-card .vt-form-el { flex: 1 1 auto; }
   .vt-form-card .vt-form-el textarea { flex: 1 1 auto; }
 }
+
+/* ---------- Terms: PDF download card layout (badge | text | arrow) ---------- */
+.vt-download.vt-icon-row > .vt-pdf-badge, .vt-download.vt-icon-row > .vt-dl-arrow { flex: 0 0 auto !important; width: auto !important; }
+.vt-download.vt-icon-row > .e-con { flex: 1 1 0 !important; min-width: 0; align-items: flex-start !important; }
+.vt-download .e-con .elementor-widget { width: 100% !important; }
+.vt-download .e-con .elementor-heading-title { text-align: left !important; overflow-wrap: normal !important; word-break: normal !important; }
+.vt-dl-arrow .elementor-heading-title { width: 48px !important; height: 48px !important; transition: transform .25s ease; }
+.vt-download:hover .vt-dl-arrow .elementor-heading-title { transform: translateY(3px); }
+@media (max-width: 480px) {
+  .vt-download.vt-icon-row { gap: 12px !important; padding: 16px !important; }
+  .vt-pdf-badge .elementor-heading-title { width: 44px !important; height: 44px !important; border-radius: 12px !important; }
+  .vt-dl-arrow .elementor-heading-title { width: 40px !important; height: 40px !important; }
+  .vt-download .e-con .elementor-widget:first-child .elementor-heading-title { font-size: 16px !important; line-height: 1.25 !important; }
+  .vt-download .e-con .elementor-widget:last-child .elementor-heading-title { font-size: 13px !important; }
+}
