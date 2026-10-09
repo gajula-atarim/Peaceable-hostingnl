@@ -543,3 +543,6 @@ html, body { max-width: 100%; overflow-x: hidden; }
 .vt-project-card > .elementor-widget:last-child .elementor-heading-title { color: #3FA9F5 !important; transition: color .3s ease; }
 .vt-project-card:hover > .elementor-widget:last-child .elementor-heading-title { color: #fff !important; }
 @media (max-width: 767px) { .vt-project-card { padding-right: 76px !important; } .vt-project-card::after { width: 40px; height: 40px; right: 18px; } }
+
+/* ---------- Footer logo: larger (76px box = logo at its native 60px), never wider than its column ---------- */
+.vt-footer .vt-logo-box--sm img { height: 76px !important; padding: 8px 16px !important; border-radius: 14px !important; max-width: 100% !important; object-fit: contain; }
