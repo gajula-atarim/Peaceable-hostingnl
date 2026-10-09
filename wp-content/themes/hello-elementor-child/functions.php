@@ -59,3 +59,18 @@ function vt_handle_contact() {
 	$ok   = wp_mail( $to, 'Websiteaanvraag van ' . $name, $body, [ 'Reply-To: ' . $name . ' <' . $email . '>' ] );
 	$done( $ok );
 }
+
+/**
+ * Old English page URLs now 301-redirect to their Dutch slugs.
+ */
+add_action( 'template_redirect', function () {
+	if ( ! is_404() ) {
+		return;
+	}
+	$map  = [ 'services' => 'diensten', 'projects' => 'projecten', 'about-us' => 'over-ons', 'terms' => 'algemene-voorwaarden' ];
+	$path = trim( (string) wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' );
+	if ( isset( $map[ $path ] ) ) {
+		wp_safe_redirect( home_url( '/' . $map[ $path ] . '/' ), 301 );
+		exit;
+	}
+} );
