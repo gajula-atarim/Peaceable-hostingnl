@@ -546,3 +546,8 @@ html, body { max-width: 100%; overflow-x: hidden; }
 
 /* ---------- Footer logo: larger (76px box = logo at its native 60px), never wider than its column ---------- */
 .vt-footer .vt-logo-box--sm img { height: 76px !important; padding: 8px 16px !important; border-radius: 14px !important; max-width: 100% !important; object-fit: contain; }
+
+/* ---------- Header logo: larger (desktop 76px box = logo at native 60px; tablet/mobile 58px box) ---------- */
+.vt-header-bar .vt-logo-box img { height: 76px !important; padding: 8px 16px !important; }
+@media (max-width: 1024px) { .vt-header-bar .vt-logo-box img { height: 58px !important; padding: 6px 12px !important; } }
+@media (max-width: 767px) { .vt-header-bar .vt-logo-box img { max-width: calc(100vw - 110px) !important; object-fit: contain; } }
