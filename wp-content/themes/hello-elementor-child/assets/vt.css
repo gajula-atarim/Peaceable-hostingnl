@@ -510,3 +510,13 @@ html, body { max-width: 100%; overflow-x: hidden; }
 
 /* ---------- Hero: fixed gap under the header on every screen (no viewport-height stretch) ---------- */
 .vt-hero { min-height: 0 !important; }
+
+/* ---------- Contact page: form card as tall as the left column (side-by-side layouts) ---------- */
+@media (min-width: 768px) {
+  .e-con:has(> .vt-form-card), .e-con-inner:has(> .vt-form-card) { align-items: stretch !important; }
+  .vt-form-card { align-self: stretch !important; }
+  .vt-form-card > .vt-form, .vt-form-card > .elementor-widget-html { flex: 1 1 auto !important; display: flex !important; flex-direction: column; }
+  .vt-form-card .elementor-widget-html > .elementor-widget-container, .vt-form-card .vt-form > .elementor-widget-container { flex: 1 1 auto; display: flex; flex-direction: column; }
+  .vt-form-card .vt-form-el { flex: 1 1 auto; }
+  .vt-form-card .vt-form-el textarea { flex: 1 1 auto; }
+}
