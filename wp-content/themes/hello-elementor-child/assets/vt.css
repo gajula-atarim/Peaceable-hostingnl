@@ -507,3 +507,6 @@ html, body { max-width: 100%; overflow-x: hidden; }
 
 /* ---------- Service strip: slower loop for the longer list ---------- */
 .vt-marquee .elementor-icon-list-items { animation-duration: 85s !important; }
+
+/* ---------- Hero: fixed gap under the header on every screen (no viewport-height stretch) ---------- */
+.vt-hero { min-height: 0 !important; }
