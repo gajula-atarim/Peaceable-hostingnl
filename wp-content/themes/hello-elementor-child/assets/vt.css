@@ -597,3 +597,5 @@ html.vt-lb-open { overflow: hidden; }
   .vt-form-card .wpcf7-form > p:has(textarea), .vt-form-card .wpcf7-form > p:has(textarea) .wpcf7-form-control-wrap { flex: 1 1 auto; display: flex; flex-direction: column; }
   .vt-form-card .wpcf7-form textarea { flex: 1 1 auto; }
 }
+.vt-form .wpcf7-submit { align-self: flex-start; margin-top: 14px; }
+.vt-form .wpcf7-form p:has(textarea) br { display: none; }
