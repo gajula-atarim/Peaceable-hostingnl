@@ -76,11 +76,21 @@ add_action( 'template_redirect', function () {
 } );
 
 /**
- * UAE's hidden site title links via bloginfo('url'); point it at the current language's home (Polylang).
+ * UAE's hidden site title links to home_url('/'); while UAE renders the header,
+ * point it at the current language's home (Polylang) instead.
  */
-add_filter( 'bloginfo_url', function ( $url, $show ) {
-	if ( 'url' === $show && ! is_admin() && did_action( 'wp' ) && function_exists( 'pll_home_url' ) ) {
-		return untrailingslashit( pll_home_url() );
+function vt_lang_home_url( $url, $path ) {
+	if ( '/' !== $path || ! function_exists( 'pll_home_url' ) ) {
+		return $url;
 	}
+	remove_filter( 'home_url', 'vt_lang_home_url', 10 ); // pll_home_url() may call home_url() itself.
+	$url = pll_home_url();
+	add_filter( 'home_url', 'vt_lang_home_url', 10, 2 );
 	return $url;
-}, 10, 2 );
+}
+add_action( 'hfe_header', function () {
+	add_filter( 'home_url', 'vt_lang_home_url', 10, 2 );
+}, 0 );
+add_action( 'hfe_header', function () {
+	remove_filter( 'home_url', 'vt_lang_home_url', 10 );
+}, 999 );
