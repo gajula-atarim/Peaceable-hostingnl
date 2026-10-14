@@ -74,3 +74,13 @@ add_action( 'template_redirect', function () {
 		exit;
 	}
 } );
+
+/**
+ * UAE's hidden site title links via bloginfo('url'); point it at the current language's home (Polylang).
+ */
+add_filter( 'bloginfo_url', function ( $url, $show ) {
+	if ( 'url' === $show && ! is_admin() && did_action( 'wp' ) && function_exists( 'pll_home_url' ) ) {
+		return untrailingslashit( pll_home_url() );
+	}
+	return $url;
+}, 10, 2 );
