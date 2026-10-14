@@ -122,14 +122,27 @@
 		var m = /[?&]vt_sent=([01])/.exec(window.location.search);
 		var form = document.querySelector('.vt-form .vt-form-el');
 		if (!m || !form) { return; }
+		var en = /^en/i.test(document.documentElement.lang || '');
 		if (m[1] === '1') {
 			var card = form.closest('.vt-form-card') || form.parentNode;
-			card.innerHTML = '<div class="vt-form-thanks"><b>✓</b><strong>Bedankt voor uw bericht</strong></div>';
+			card.innerHTML = '<div class="vt-form-thanks"><b>✓</b><strong>' + (en ? 'Thank you for your message' : 'Bedankt voor uw bericht') + '</strong></div>';
 		} else {
 			var p = document.createElement('p');
 			p.className = 'vt-form-error';
-			p.textContent = 'Sorry, uw bericht kon niet worden verzonden. Mail ons op info@vthullenaar.nl.';
+			p.textContent = en ? 'Sorry, your message could not be sent. Email us at info@vthullenaar.nl.' : 'Sorry, uw bericht kon niet worden verzonden. Mail ons op info@vthullenaar.nl.';
 			form.insertBefore(p, form.firstChild);
 		}
+	});
+})();
+
+/* vtHullenaar: NL | EN switcher links to the translation of the current page (Polylang hreflang alternates). */
+(function () {
+	'use strict';
+	function ready(fn) { if (document.readyState !== 'loading') { fn(); } else { document.addEventListener('DOMContentLoaded', fn); } }
+	ready(function () {
+		document.querySelectorAll('.vt-lang__opt[lang]').forEach(function (a) {
+			var alt = document.querySelector('link[rel="alternate"][hreflang^="' + a.getAttribute('lang') + '"]');
+			if (alt && alt.href) { a.href = alt.href; }
+		});
 	});
 })();
