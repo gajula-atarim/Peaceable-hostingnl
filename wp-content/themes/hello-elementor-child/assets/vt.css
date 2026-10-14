@@ -556,3 +556,13 @@ html, body { max-width: 100%; overflow-x: hidden; }
 .vt-header-bar .vt-logo-box img { height: 76px !important; padding: 4px 10px !important; }
 @media (max-width: 1024px) { .vt-header-bar .vt-logo-box img { height: 66px !important; padding: 4px 10px !important; } }
 @media (max-width: 767px) { .vt-header-bar .vt-logo-box img { max-width: calc(100vw - 110px) !important; object-fit: contain; } }
+
+/* ---------- Mobile header: slightly smaller logo + NL | EN switch beside the hamburger ---------- */
+@media (max-width: 767px) {
+  .vt-header-bar > .e-con-inner, .vt-header-bar { column-gap: 0 !important; }
+  .vt-header-bar .vt-logo-box { order: 1; flex: 0 1 auto !important; min-width: 0; }
+  .vt-header-bar .vt-logo-box img { height: 54px !important; padding: 4px 8px !important; border-radius: 12px !important; max-width: calc(100vw - 172px) !important; object-fit: contain; }
+  .vt-header-bar .vt-lang { display: block !important; order: 2; flex: 0 0 auto !important; margin-left: auto !important; }
+  .vt-header-bar .vt-lang a { padding: 6px 9px; font-size: 12px; }
+  .vt-header-bar .vt-nav { order: 3; flex: 0 0 auto !important; width: 40px !important; max-width: 40px !important; min-width: 0 !important; overflow: visible !important; margin-left: 10px !important; }
+}
