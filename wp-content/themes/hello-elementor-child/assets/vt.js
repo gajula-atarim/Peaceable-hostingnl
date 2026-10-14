@@ -97,20 +97,98 @@
 	});
 })();
 
-/* vtHullenaar: project gallery as one lightbox slideshow + "Open gallery" button. */
+/* vtHullenaar: project gallery lightbox with previous/next, counter, keyboard and swipe. */
 (function () {
 	'use strict';
 	function ready(fn) { if (document.readyState !== 'loading') { fn(); } else { document.addEventListener('DOMContentLoaded', fn); } }
 	ready(function () {
-		var links = document.querySelectorAll('.vt-mtile a');
-		links.forEach(function (a) { a.setAttribute('data-elementor-lightbox-slideshow', 'vt-projects'); });
-		document.querySelectorAll('.vt-open-gallery a, .vt-open-gallery .elementor-button').forEach(function (btn) {
-			btn.addEventListener('click', function (e) {
-				if (!links.length) { return; }
-				e.preventDefault();
-				links[0].click();
+		var en = /^en/i.test(document.documentElement.lang || '');
+		var t = en ? { prev: 'Previous photo', next: 'Next photo', close: 'Close' } : { prev: 'Vorige foto', next: 'Volgende foto', close: 'Sluiten' };
+		var sel = 'a[data-elementor-open-lightbox="yes"]';
+		var box, img, cap, count, prevBtn, nextBtn, items = [], index = 0, lastFocus, touchX = null;
+		function toArray(list) { return Array.prototype.slice.call(list); }
+		function isImage(a) { return /\.(jpe?g|png|webp|gif|avif)(\?|$)/i.test(a.getAttribute('href') || ''); }
+		// All lightbox photos in the same top-level section form one slideshow.
+		function groupOf(a) {
+			var root = a.closest('.e-con.e-parent') || document;
+			return toArray(root.querySelectorAll(sel)).filter(isImage);
+		}
+		function show(i) {
+			index = (i + items.length) % items.length;
+			var a = items[index], thumb = a.querySelector('img');
+			img.src = a.getAttribute('href');
+			img.alt = thumb ? thumb.alt : '';
+			cap.textContent = a.getAttribute('data-elementor-lightbox-title') || img.alt;
+			count.textContent = (index + 1) + ' / ' + items.length;
+			prevBtn.hidden = nextBtn.hidden = items.length < 2;
+		}
+		function close() {
+			box.hidden = true;
+			document.documentElement.classList.remove('vt-lb-open');
+			if (lastFocus && lastFocus.focus) { lastFocus.focus(); }
+		}
+		function build() {
+			box = document.createElement('div');
+			box.className = 'vt-lb';
+			box.hidden = true;
+			box.setAttribute('role', 'dialog');
+			box.setAttribute('aria-modal', 'true');
+			box.innerHTML = '<div class="vt-lb__count"></div>' +
+				'<button type="button" class="vt-lb__close" aria-label="' + t.close + '">&times;</button>' +
+				'<button type="button" class="vt-lb__nav vt-lb__prev" aria-label="' + t.prev + '">&#8592;</button>' +
+				'<figure class="vt-lb__fig"><img class="vt-lb__img" alt=""><figcaption class="vt-lb__cap"></figcaption></figure>' +
+				'<button type="button" class="vt-lb__nav vt-lb__next" aria-label="' + t.next + '">&#8594;</button>';
+			document.body.appendChild(box);
+			img = box.querySelector('.vt-lb__img');
+			cap = box.querySelector('.vt-lb__cap');
+			count = box.querySelector('.vt-lb__count');
+			prevBtn = box.querySelector('.vt-lb__prev');
+			nextBtn = box.querySelector('.vt-lb__next');
+			prevBtn.addEventListener('click', function () { show(index - 1); });
+			nextBtn.addEventListener('click', function () { show(index + 1); });
+			box.querySelector('.vt-lb__close').addEventListener('click', close);
+			box.addEventListener('click', function (e) { if (e.target === box || e.target.classList.contains('vt-lb__fig')) { close(); } });
+			box.addEventListener('touchstart', function (e) { touchX = e.touches[0].clientX; }, { passive: true });
+			box.addEventListener('touchend', function (e) {
+				if (touchX === null) { return; }
+				var dx = e.changedTouches[0].clientX - touchX;
+				touchX = null;
+				if (Math.abs(dx) > 40 && items.length > 1) { show(index + (dx < 0 ? 1 : -1)); }
 			});
+		}
+		function open(list, i) {
+			if (!list.length) { return; }
+			if (!box) { build(); }
+			items = list;
+			lastFocus = document.activeElement;
+			box.hidden = false;
+			document.documentElement.classList.add('vt-lb-open');
+			show(i);
+			(items.length > 1 ? nextBtn : box.querySelector('.vt-lb__close')).focus();
+		}
+		document.addEventListener('keydown', function (e) {
+			if (!box || box.hidden) { return; }
+			if (e.key === 'Escape') { close(); } else if (e.key === 'ArrowLeft') { show(index - 1); } else if (e.key === 'ArrowRight') { show(index + 1); }
 		});
+		// Capture phase: runs before (and replaces) Elementor's single-image lightbox.
+		window.addEventListener('click', function (e) {
+			if (!e.target.closest) { return; }
+			var btn = e.target.closest('.vt-open-gallery');
+			if (btn) {
+				var tiles = toArray(document.querySelectorAll('.vt-mtile ' + sel)).filter(isImage);
+				if (!tiles.length) { return; }
+				e.preventDefault();
+				e.stopImmediatePropagation();
+				open(tiles, 0);
+				return;
+			}
+			var a = e.target.closest(sel);
+			if (!a || !isImage(a) || (box && box.contains(a))) { return; }
+			e.preventDefault();
+			e.stopImmediatePropagation();
+			var list = groupOf(a);
+			open(list, Math.max(0, list.indexOf(a)));
+		}, true);
 	});
 })();
 

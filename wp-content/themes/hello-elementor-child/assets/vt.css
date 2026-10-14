@@ -566,3 +566,26 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .vt-header-bar .vt-lang a { padding: 6px 9px; font-size: 12px; }
   .vt-header-bar .vt-nav { order: 3; flex: 0 0 auto !important; width: 40px !important; max-width: 40px !important; min-width: 0 !important; overflow: visible !important; margin-left: 10px !important; }
 }
+
+/* ---------- Project gallery lightbox (vt.js) ---------- */
+html.vt-lb-open { overflow: hidden; }
+.vt-lb { position: fixed; inset: 0; z-index: 100000; background: rgba(5,12,28,.94); display: flex; align-items: center; justify-content: center; padding: 72px 96px; box-sizing: border-box; }
+.vt-lb[hidden] { display: none; }
+.vt-lb__fig { margin: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; }
+.vt-lb__img { display: block; max-width: 100%; max-height: calc(100vh - 190px); width: auto; height: auto; object-fit: contain; border-radius: 14px; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+.vt-lb__cap { color: #C9D6E6; font: 500 14px/1.4 'Archivo', sans-serif; text-align: center; }
+.vt-lb__count { position: absolute; top: 28px; left: 28px; color: #fff; font: 600 14px/1 'Archivo', sans-serif; letter-spacing: .06em; }
+.vt-lb button { appearance: none; position: absolute; display: flex; align-items: center; justify-content: center; width: 54px; height: 54px; padding: 0; margin: 0; border: 1px solid rgba(255,255,255,.28) !important; border-radius: 50% !important; background: rgba(255,255,255,.1) !important; color: #fff !important; font: 400 24px/1 'Archivo', sans-serif; cursor: pointer; transition: background .2s ease, transform .2s ease; }
+.vt-lb button:hover, .vt-lb button:focus-visible { background: var(--vt-sky, #3BA3F0) !important; border-color: transparent !important; outline: none; }
+.vt-lb button[hidden] { display: none; }
+.vt-lb__close { top: 16px; right: 18px; font-size: 30px !important; }
+.vt-lb__nav { top: 50%; transform: translateY(-50%); }
+.vt-lb__prev { left: 24px; }
+.vt-lb__next { right: 24px; }
+@media (max-width: 767px) {
+  .vt-lb { padding: 68px 12px 104px; }
+  .vt-lb__img { max-height: calc(100vh - 230px); }
+  .vt-lb__nav { top: auto; bottom: 28px; transform: none; }
+  .vt-lb__prev { left: calc(50% - 66px); }
+  .vt-lb__next { right: calc(50% - 66px); }
+}
