@@ -599,3 +599,5 @@ html.vt-lb-open { overflow: hidden; }
 }
 .vt-form .wpcf7-submit { align-self: flex-start; margin-top: 14px; }
 .vt-form .wpcf7-form p:has(textarea) br { display: none; }
+.vt-form .vt-form-grid > p { display: contents; }
+.vt-form .vt-form-grid br { display: none; }
