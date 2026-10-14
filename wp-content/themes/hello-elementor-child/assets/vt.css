@@ -589,3 +589,11 @@ html.vt-lb-open { overflow: hidden; }
   .vt-lb__prev { left: calc(50% - 66px); }
   .vt-lb__next { right: calc(50% - 66px); }
 }
+
+/* ---------- Contact Form 7 in the contact card ---------- */
+.vt-form .elementor-shortcode, .vt-form .wpcf7 { display: flex; flex-direction: column; flex: 1 1 auto; }
+@media (min-width: 768px) {
+  .vt-form-card .wpcf7-form { flex: 1 1 auto; }
+  .vt-form-card .wpcf7-form > p:has(textarea), .vt-form-card .wpcf7-form > p:has(textarea) .wpcf7-form-control-wrap { flex: 1 1 auto; display: flex; flex-direction: column; }
+  .vt-form-card .wpcf7-form textarea { flex: 1 1 auto; }
+}
